@@ -47,26 +47,26 @@ const CoffeeCard = ({ coffee, coffees, setCoffees }) => {
 
     return (
         <div>
-            <div className="card card-side bg-[#a7a7a762] p-4 flex gap-3 items-center rounded-md">
+            <div className="card card-side bg-[#a7a7a762] p-4 md:flex gap-3 items-center justify-center rounded-md">
                 <img className='object-cover' src={photoUrl} alt="Coffee Image" />
-                <div className='flex gap-5 justify-between w-full items-center'>
+                <div className='md:flex gap-5 justify-between w-full items-center'>
                     <div className="h-full">
                         <h2 className="card-title text-xl text-slate-600 py-1"><span className='font-semibold text-black'>Name:</span> {name}</h2>
                         <p className="card-title text-xl text-slate-600 py-1"><span className='font-semibold text-black'>Chef:</span> {chef}</p>
                         <p className="card-title text-xl text-slate-600 py-1"><span className='font-semibold text-black'>Price:</span> {price} Taka</p>
                     </div>
-                    <div className='flex flex-col gap-3'>
+                    <div className='md:flex md:flex-col md:gap-3 mt-4'>
                         <Link to={`/coffee-details/${_id}`}>
-                            <button className='bg-[#D2B48C] hover:bg-[#7c6950] p-3 rounded-md text-white'>
+                            <button className='bg-[#D2B48C] hover:bg-[#7c6950] p-3 rounded-md ms-3 text-white'>
                                 <BsEyeFill className='w-6 h-6' />
                             </button>
                         </Link>
-                        <Link to={`/update-coffee/${_id}`} ><button className='bg-[#3C393B] hover:bg-[#111011] p-3 rounded-md text-white'>
+                        <Link to={`/update-coffee/${_id}`} ><button className='bg-[#3C393B] hover:bg-[#111011] p-3 rounded-md ms-3 text-white'>
                             <HiPencil className='w-6 h-6' />
                         </button></Link>
                         <button
                             onClick={() => handleDelete(_id)}
-                            className='bg-[#EA4744] hover:bg-[#dd0400] p-3 rounded-md text-white'>
+                            className='bg-[#EA4744] hover:bg-[#dd0400] p-3 rounded-md ms-3 text-white'>
                             <MdDelete className='w-6 h-6' />
                         </button>
                     </div>
