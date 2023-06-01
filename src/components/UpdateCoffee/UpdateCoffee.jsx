@@ -2,10 +2,50 @@ import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import './UpdateCoffee.css'
 import { HiArrowLeft } from "react-icons/hi";
+import Swal from 'sweetalert2';
 
 const UpdateCoffee = () => {
     const coffeeDetailsForUpdate = useLoaderData();
-    const { name, chef, supplier, taste, category, details, quantity, price, photoUrl } = coffeeDetailsForUpdate;
+    const { _id, name, chef, supplier, taste, category, details, quantity, price, photoUrl } = coffeeDetailsForUpdate;
+
+
+    const handleUpdateCoffee = event => {
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const chef = form.chef.value;
+        const supplier = form.supplier.value;
+        const taste = form.taste.value;
+        const category = form.category.value;
+        const details = form.details.value;
+        const quantity = form.quantity.value;
+        const price = form.price.value;
+        const photoUrl = form.photoUrl.value;
+        const updatedCoffeeDetails = { name, chef, supplier, taste, category, details, quantity, price, photoUrl }
+        console.log(updatedCoffeeDetails)
+
+        // send updated data to the server
+        fetch(`http://localhost:5000/coffee/${_id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updatedCoffeeDetails)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.modifiedCount > 0) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Coffee updated successfully!',
+                        icon: 'success',
+                        confirmButtonText: 'Okay'
+                    })
+                }
+            })
+    }
+
     return (
         <div className='bg-updateCoffee'>
             <div className='md:px-44 p-5 '>
@@ -24,7 +64,7 @@ const UpdateCoffee = () => {
                         </div>
                     </div>
 
-                    <form className='text-left mt-10 p-5'>
+                    <form onSubmit={handleUpdateCoffee} className='text-left mt-10 p-5'>
                         {/* row 1 */}
                         <div className='md:flex gap-5 mb-4'>
                             <div className='w-full'>
@@ -81,7 +121,7 @@ const UpdateCoffee = () => {
                         </div>
 
                         {/* row 6 */}
-                        <input type="submit" style={{ fontFamily: 'Rancho' }} value="Add Coffee" className='mt-5 py-3 px-5 rounded-md bg-[#d3ac59] w-full mb-12 hover:bg-[#331A15] hover:text-white text-xl' />
+                        <input type="submit" style={{ fontFamily: 'Rancho' }} value="Update Coffee Details" className='mt-5 py-3 px-5 rounded-md bg-[#d3ac59] w-full mb-12 hover:bg-[#331A15] hover:text-white text-xl' />
                     </form>
                 </div>
             </div>
