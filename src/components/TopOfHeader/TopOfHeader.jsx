@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import WebFont from 'webfontloader';
 import logo1 from '../../assets/images/more/logo1.png';
-import toHederBg from '../../assets/images/more/top-header-bg-01.png';
 import './TopOfHeader.css'
 
 const TopOfHeader = () => {
@@ -15,7 +14,7 @@ const TopOfHeader = () => {
     }, []);
 
     return (
-        <div className='flex justify-center bg-zinc-800'>
+        <div className='flex justify-center bg-header'>
             {/* <img src={toHederBg} alt="" className='w-full' /> */}
             <div className='py-2'>
                 <div style={{ fontFamily: 'Rancho' }} className='flex items-center gap-5 mx-auto'>

@@ -14,8 +14,9 @@ const AddCoffee = () => {
         const category = form.category.value;
         const details = form.details.value;
         const quantity = form.quantity.value;
+        const price = form.price.value;
         const photoUrl = form.photoUrl.value;
-        const newCoffee = { name, chef, supplier, taste, category, details, quantity, photoUrl }
+        const newCoffee = { name, chef, supplier, taste, category, details, quantity, price, photoUrl }
 
         // send data to the server
         fetch('http://localhost:5000/coffee', {
@@ -33,7 +34,7 @@ const AddCoffee = () => {
                         title: 'Success!',
                         text: 'Coffee item added successfully!',
                         icon: 'success',
-                        confirmButtonText: 'Okey'
+                        confirmButtonText: 'Okay'
                     })
                 }
             })
@@ -43,7 +44,7 @@ const AddCoffee = () => {
     return (
         <div className='relative'>
             <img src={bg} alt="" />
-            <div className='absolute top-0 md:mx-44 p-5 '>
+            <div className='absolute top-0 md:px-44 p-5 '>
                 <p className='md:py-5 py-3'>Back to home</p>
                 <div className='text-center md:px-10 md:py-8 bg-[#F4F3F0] rounded-xl'>
                     <h2 className='text-3xl font-bold py-4'>Add New Coffee</h2>
@@ -92,11 +93,19 @@ const AddCoffee = () => {
                                 <input type="text" name="quantity" id="quantity" placeholder="Enter coffee quantity" className='py-3 px-5 w-full rounded-md' />
                             </div>
                             <div className='w-full'>
+                                <p className='text-xl ps-5 font-semibold mb-2'>Price</p>
+                                <input type="text" name="price" id="price" placeholder="Enter coffee price" className='py-3 px-5 w-full rounded-md' />
+                            </div>
+                        </div>
+                        {/* row 5 */}
+                        <div className='mb-4'>
+                            <div className='w-full'>
                                 <p className='text-xl ps-5 font-semibold mb-2'>Photo Url</p>
                                 <input type="text" name="photoUrl" id="photoUrl" placeholder="Enter coffee PhotoUrl" className='py-3 px-5 w-full rounded-md' />
                             </div>
                         </div>
-                        {/* row 5 */}
+
+                        {/* row 6 */}
                         <input type="submit" value="Add Coffee" className='mt-5 py-3 px-5 rounded-md bg-[#d3ac59] w-full mb-12 hover:bg-[#463000] hover:text-white' />
                     </form>
                 </div>
