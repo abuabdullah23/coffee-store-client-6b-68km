@@ -13,11 +13,11 @@ const Home = () => {
         <div className='home-bg'>
             <div className='md:px-36 p-5'>
                 <div className='text-center md:px-10 md:py-8'>
-                    <p>--- Sip & Savor ---</p>
-                    <p className='text-[#331A15] md:px-14 p-5 font-bold text-3xl'>Our Popular Products</p>
+                    <p className='m-0 py-1 text-xl'>--- Sip & Savor ---</p>
+                    <p className='text-[#331A15] md:px-14 p-5 font-bold text-3xl' style={{ fontFamily: 'Rancho' }}>Our Popular Products</p>
                     <div className='flex justify-center'>
                         <p className='bg-[#E3B577] border-2 border-[#331A15] rounded-md flex items-center w-fit'>
-                            <button className='font-semibold px-3 py-2'><Link to='/add-coffee'> Add Coffee </Link></button>
+                            <button className='font-semibold px-3 py-2 text-white' style={{ fontFamily: 'Rancho' }}><Link to='/add-coffee'> Add Coffee </Link></button>
                             <FaCoffee className='mr-2' />
                         </p>
                     </div>

@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Add Custom Font in all pages */
+@import url('https://fonts.googleapis.com/css2?family=Raleway&family=Rancho&display=swap');
+
+body{
+    font-family: 'Raleway', sans-serif;
+}

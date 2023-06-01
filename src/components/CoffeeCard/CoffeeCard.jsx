@@ -2,6 +2,7 @@ import React from 'react';
 import { BsEyeFill } from "react-icons/bs";
 import { HiPencil } from "react-icons/hi";
 import { MdDelete } from "react-icons/md";
+import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const CoffeeCard = ({ coffee, coffees, setCoffees }) => {
@@ -42,7 +43,6 @@ const CoffeeCard = ({ coffee, coffees, setCoffees }) => {
                     })
             }
         })
-
     }
 
     return (
@@ -59,15 +59,14 @@ const CoffeeCard = ({ coffee, coffees, setCoffees }) => {
                         <button className='bg-[#D2B48C] p-3 rounded-md text-white'>
                             <BsEyeFill className='w-6 h-6' />
                         </button>
-                        <button className='bg-[#3C393B] p-3 rounded-md text-white'>
+                        <Link to={`/update-coffee/${_id}`} ><button className='bg-[#3C393B] p-3 rounded-md text-white'>
                             <HiPencil className='w-6 h-6' />
-                        </button>
+                        </button></Link>
                         <button
                             onClick={() => handleDelete(_id)}
-                            className='bg-[#EA4744] p-3 rounded-md text-white'>
+                            className='bg-[#EA4744] hover:bg-[#dd0400] p-3 rounded-md text-white'>
                             <MdDelete className='w-6 h-6' />
                         </button>
-
                     </div>
                 </div>
             </div>

@@ -1,6 +1,8 @@
 import React from 'react';
 import bg from '../../assets/images/more/11.png'
 import Swal from 'sweetalert2'
+import { Link } from 'react-router-dom';
+import { HiArrowLeft } from "react-icons/hi";
 
 const AddCoffee = () => {
 
@@ -45,9 +47,12 @@ const AddCoffee = () => {
         <div className='relative'>
             <img src={bg} alt="" />
             <div className='absolute top-0 md:px-44 p-5 '>
-                <p className='md:py-5 py-3'>Back to home</p>
+                <Link to='/' className='flex items-center gap-3'>
+                    <HiArrowLeft />
+                    <p style={{ fontFamily: 'Rancho' }} className='md:py-5 text-3xl text-[#331A15] py-3 drop-shadow-xl'>Back to home</p>
+                </Link>
                 <div className='text-center md:px-10 md:py-8 bg-[#F4F3F0] rounded-xl'>
-                    <h2 className='text-3xl font-bold py-4'>Add New Coffee</h2>
+                    <h2 className='text-3xl font-semibold py-4 text-[#331A15]' style={{ fontFamily: 'Rancho' }}>Add New Coffee</h2>
                     <p className='text-slate-600 md:px-14 p-5'>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here.</p>
                     <form onSubmit={handleAddCoffee} className='text-left mt-10 p-5'>
                         {/* row 1 */}
@@ -106,7 +111,7 @@ const AddCoffee = () => {
                         </div>
 
                         {/* row 6 */}
-                        <input type="submit" value="Add Coffee" className='mt-5 py-3 px-5 rounded-md bg-[#d3ac59] w-full mb-12 hover:bg-[#463000] hover:text-white' />
+                        <input type="submit" style={{ fontFamily: 'Rancho' }} value="Add Coffee" className='mt-5 py-3 px-5 rounded-md bg-[#d3ac59] w-full mb-12 hover:bg-[#331A15] hover:text-white text-xl' />
                     </form>
                 </div>
             </div>
