@@ -1,5 +1,6 @@
 import React from 'react';
 import bg from '../../assets/images/more/11.png'
+import Swal from 'sweetalert2'
 
 const AddCoffee = () => {
 
@@ -27,7 +28,14 @@ const AddCoffee = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
-
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Coffee item added successfully!',
+                        icon: 'success',
+                        confirmButtonText: 'Okey'
+                    })
+                }
             })
     }
 
