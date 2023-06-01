@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import './Home.css'
 import CoffeeCard from '../CoffeeCard/CoffeeCard';
 import { FaCoffee } from "react-icons/fa";
 
 const Home = () => {
-    const coffees = useLoaderData();
+    const loadedCoffees = useLoaderData();
+    // update coffee card after delete : Step 1
+    const [coffees, setCoffees] = useState(loadedCoffees);
+
     return (
         <div className='home-bg'>
             <div className='md:px-36 p-5'>
@@ -19,11 +22,14 @@ const Home = () => {
                         </p>
                     </div>
                 </div>
-                <div className='grid md:grid-cols-2 gap-5'>
+                <div className='grid md:grid-cols-2 gap-5 mt-5'>
                     {
                         coffees.map(coffee => <CoffeeCard
                             key={coffee._id}
                             coffee={coffee}
+                            // update coffee card after delete : Step 2 : go to coffee card comp
+                            coffees={coffees}
+                            setCoffees={setCoffees}
                         ></CoffeeCard>)
                     }
                 </div>
